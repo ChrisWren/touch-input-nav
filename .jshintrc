@@ -1,0 +1,26 @@
+{
+  "node": true,
+  "esnext": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "immed": true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "white": true,
+  "indent": 2,
+  "quotmark": "single",
+  "expr": true,
+  "globals" : {
+    "$": true,
+    "window": true,
+    "document": true,
+    "define": true,
+    "before": true,
+    "after": true
+  }
+}

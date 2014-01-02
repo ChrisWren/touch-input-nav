@@ -1,0 +1,28 @@
+{
+  "name": "touch-input-nav",
+  "version": "0.0.0",
+  "authors": [
+    "ChrisWren <chris@chrisawren.com>"
+  ],
+  "description": "Prevents erroneous tabbed input navigation on touch devices",
+  "main": "touch-input-nav.js",
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": [
+    "mobile",
+    "touch",
+    "input",
+    "navigation",
+    "ux"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ChrisWren/touch-input-nav",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

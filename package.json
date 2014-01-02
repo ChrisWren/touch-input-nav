@@ -1,0 +1,34 @@
+{
+  "name": "touch-input-nav",
+  "version": "0.0.0",
+  "description": "Prevents erroneous tabbed input navigation on mobile devices",
+  "main": "touch-input-nav.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChrisWren/touch-input-nav"
+  },
+  "keywords": [
+    "touch",
+    "input",
+    "ux"
+  ],
+  "author": "ChrisWren",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-browser-sync": "~0.4.6",
+    "load-grunt-tasks": "~0.2.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.2.7"
+  },
+  "dependencies": {
+    "jquery": "~2.0.0"
+  }
+}
