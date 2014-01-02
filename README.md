@@ -2,6 +2,7 @@
 
 > Scopes mobile web tabbed input navigation to input elements inside the same form
 
+![touch-input-nav](http://i.imgur.com/adaP4uB.gif)
 
 ## Installation
 
