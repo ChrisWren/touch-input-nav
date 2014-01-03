@@ -1,3 +1,7 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var touchInputNav = require('../../touch-input-nav');
+touchInputNav();
+},{"../../touch-input-nav":2}],2:[function(require,module,exports){
 /*
  * touch-input-nav.js
  * https://github.com/ChrisWren/touch-input-nav
@@ -90,8 +94,18 @@
     });
   };
 
+   /** Used to determine if values are of the language type Object */
+  var objectTypes = {
+    'boolean': false,
+    'function': true,
+    'object': true,
+    'number': false,
+    'string': false,
+    'undefined': false
+  };
+
   if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
-    require(['jquery'], function () {
+    define(['jquery'], function () {
       return touchInputNav;
     });
   } else {
@@ -102,3 +116,4 @@
     }
   }
 })();
+},{}]},{},[1])
