@@ -11,7 +11,7 @@
   // Negates the user agent :disabled input field styling on a per os/browser basis
   var osData = {
     iOSSafari: {
-      event: 'touchstart',
+      touchEvent: 'touchstart',
       styles: {
         input: {
           'opacity': 1
@@ -31,8 +31,6 @@
   function getTabableOsAndBrowser() {
     if (window.navigator.userAgent.match(/iPhone|iPad|iPod/)) {
       return 'iOSSafari';
-    } else if (window.navigator.userAgent.match(/Samsung/)) {
-      return 'SamsungAndroid';
     }
     // Add more browser/OS combos here
   }
@@ -46,7 +44,6 @@
 
     var tabableOsAndBrowser = getTabableOsAndBrowser();
 
-    // If current browser doesn't have tabable input navigation, exit early
     if (!tabableOsAndBrowser) {
       return false;
     }
@@ -55,6 +52,7 @@
     // per browser/os combo if they so desire
     var disabledClassName = className || 'input-disabled';
 
+    // Generate a <style> tag to insert into the page instead of assigning inline-styles
     var styleString = '';
     for (var element in osData[tabableOsAndBrowser].styles) {
       styleString +=  element + ':disabled.' + disabledClassName + '{';
@@ -68,7 +66,6 @@
 
     var inputSelectorString = 'input,select,textarea';
 
-    // Prevent input navigation outside of the current form scope
     $(document).on('focus', inputSelectorString, function () {
       var $this = $(this);
       var $formInputs = $this.closest('form').find(inputSelectorString);
@@ -87,22 +84,21 @@
 
       // If a disabled input field is tapped allow it to be focused
       // by removing the disabled attribute
-      $(inputSelectorString).one(osData[tabableOsAndBrowser].event + '.input-disabled', function () {
+      $(inputSelectorString).one(osData[tabableOsAndBrowser].touchEvent + '.input-disabled', function () {
         $(this).prop('disabled', false);
       });
     });
   };
 
-  var root = window ? window : module.exports;
-
   if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
-    root.touchInputNav = touchInputNav;
-
-    // define as an anonymous module so, through path mapping, it can be
-    define(function () {
+    require(['jquery'], function () {
       return touchInputNav;
     });
   } else {
-    root.touchInputNav = touchInputNav;
+    if (typeof module === 'object' && module.exports) {
+      module.exports = touchInputNav;
+    } else {
+      window.touchInputNav = touchInputNav;
+    }
   }
 })();

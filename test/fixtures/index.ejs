@@ -6,6 +6,7 @@
   <title>Test page for touch-input-nav</title>
 </head>
 <body>
+  <i>This page should be viewed on an iOS device. Notice how the tabbed input navigation is scoped within the form.</i>
   <h2>Form 1:</h2>
   <form action="">
     <input type="text">
@@ -19,9 +20,22 @@
     <textarea name="test-textarea" id="test-textarea" cols="30" rows="10"></textarea>
   </form>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="../touch-input-nav.js"></script>
+
+  <% if (moduleLoader === 'browserify') { %>
+
+  <script src="build.js"></script>
+
+  <% } else if (moduleLoader === 'requirejs') { %>
+
+  <script src="require.js" data-main="requirejs-test"></script>
+
+  <% } else { %>
+
+  <script src="touch-input-nav.js"></script>
   <script>
-    touchInputNav();
+    // no module loader
+    window.touchInputNav();
   </script>
+  <% } %>
 </body>
 </html>
