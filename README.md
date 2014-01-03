@@ -31,8 +31,16 @@ npm install --save-dev touch-input-nav
 This module will add a global listener for the `focus` event on all input, select, and textarea elements and then when the focus event occurs, it will disable all other input elements that are not inside the focused-element's parent `form` element. It applies a class on the disabled elements so that they appear enabled in case they are visible within the viewport. A user can still click on these `disabled` elements, just not tab to them as they are not a part of a form-flow.
 
 ```js
-    touchInputNav();
+// no module loader
+window.touchInputNav();
+
+// requirejs
+require(['touch-input-nav'], function (touchInputNav) {
+  touchInputNav();
 });
+
+// browserify
+require('touch-input-nav')();
 ```
 
 ### touchInputNav([className])
