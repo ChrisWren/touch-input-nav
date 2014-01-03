@@ -1,7 +1,7 @@
 {
   "name": "touch-input-nav",
   "version": "0.0.0",
-  "description": "Prevents erroneous tabbed input navigation on mobile devices",
+  "description": "Scopes touch-web tabbed input navigation to input elements inside the same form",
   "main": "touch-input-nav.js",
   "directories": {
     "test": "test"
@@ -34,6 +34,6 @@
     "grunt-ejs": "~0.1.0"
   },
   "dependencies": {
-    "jquery": "~2.0.0"
+    "jquery": "*"
   }
 }

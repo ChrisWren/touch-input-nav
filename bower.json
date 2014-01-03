@@ -4,7 +4,7 @@
   "authors": [
     "ChrisWren <chris@chrisawren.com>"
   ],
-  "description": "Prevents erroneous tabbed input navigation on touch devices",
+  "description": "Scopes touch-web tabbed input navigation to input elements inside the same form",
   "main": "touch-input-nav.js",
   "dependencies": {
     "jquery": "*"
