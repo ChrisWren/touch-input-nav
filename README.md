@@ -37,7 +37,7 @@ This module will add a global listener for the `focus` event on all input, selec
 window.touchInputNav();
 
 // requirejs
-require(['touch-input-nav'], function (touchInputNav) {
+define(['touch-input-nav'], function (touchInputNav) {
   touchInputNav();
 });
 
