@@ -16,11 +16,11 @@
   "quotmark": "single",
   "expr": true,
   "globals" : {
+    "test": true,
+    "ok": true,
     "$": true,
     "window": true,
     "document": true,
-    "define": true,
-    "before": true,
-    "after": true
+    "define": true
   }
 }

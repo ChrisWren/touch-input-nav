@@ -1,3 +1,6 @@
 node_modules
 dist
 .grunt
+bower_components
+.saucelabs.js
+sauce_connect.log

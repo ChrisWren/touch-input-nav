@@ -5,6 +5,7 @@
  * Copyright (c) 2013 Chris Wren & contributors
  * Licensed under the MIT license.
  */
+/* jshint -W015 */
 ;(function () {
   'use strict';
 
@@ -62,7 +63,9 @@
       styleString += '}';
     }
 
-    $('<style>').html(styleString).appendTo('head');
+    $('<style>', {
+      id: 'touch-input-nav-styles'
+    }).html(styleString).appendTo('head');
 
     var inputSelectorString = 'input,select,textarea';
 

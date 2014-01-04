@@ -1,6 +1,11 @@
 module.exports = function (grunt) {
   'use strict';
 
+  var sauceLabsCredentials;
+  if (grunt.file.exists('./.saucelabs.js')) {
+    sauceLabsCredentials = require('./.saucelabs');
+  }
+
   var config = {
     moduleLoader: process.env.moduleLoader
   };
@@ -20,11 +25,49 @@ module.exports = function (grunt) {
         }
       }
     },
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc'
+      },
+      files: {
+        src: [
+          'touch-input-nav.js',
+          'Gruntfile.js',
+          'test/**.js'
+        ]
+      }
+    },
+    'saucelabs-qunit': {
+      all: {
+        options: {
+          username: sauceLabsCredentials.username,
+          key: sauceLabsCredentials.key,
+          urls: ['http://localhost:9001/qunit.html'],
+          browsers: [{
+            browserName: 'chrome',
+          }]
+        }
+      }
+    },
     copy: {
-      'dist/touch-input-nav.js': 'touch-input-nav.js',
-      'dist/require.js': 'bower_components/requirejs/require.js',
-      'dist/jquery.js': 'bower_components/jquery/jquery.js',
-      'dist/requirejs-test.js': 'test/fixtures/requirejs-test.js'
+      dev: {
+        'dist/touch-input-nav.js': 'touch-input-nav.js',
+        'dist/require.js': 'bower_components/requirejs/require.js',
+        'dist/jquery.js': 'bower_components/jquery/jquery.js',
+        'dist/requirejs-test.js': 'test/fixtures/requirejs-test.js'
+      },
+      qunit: {
+        files: [{
+          cwd: 'bower_components/qunit/qunit',
+          src: '**',
+          dest: 'dist',
+          expand: true
+        }, {
+          'dist/touch-input-nav.js': 'touch-input-nav.js',
+          'dist/qunit.html': 'test/fixtures/qunit.html',
+          'dist/tests.js': 'test/tests.js'
+        }]
+      }
     },
     uglify: {
       dist: {
@@ -48,6 +91,10 @@ module.exports = function (grunt) {
       requirejs: {
         files: ['test/fixtures/requirejs-test.js'],
         tasks: ['copy', 'ejs-module:requirejs']
+      },
+      qunit: {
+        files: ['test/tests.js', 'test/fixtures/qunit.html'],
+        tasks: ['test']
       }
     },
     browserify: {
@@ -66,6 +113,14 @@ module.exports = function (grunt) {
         moduleLoader: '<%= config.moduleLoader %>'
       }
     },
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          base: 'dist'
+        }
+      }
+    },
     'gh-pages': {
       options: {
         base: 'dist'
@@ -78,6 +133,9 @@ module.exports = function (grunt) {
     config.moduleLoader = chosenModuleLoader;
     grunt.task.run('ejs');
   });
+
+  grunt.registerTask('test', ['jshint', 'copy:qunit', 'connect', 'saucelabs-qunit']);
+  grunt.registerTask('debug-test', ['browser_sync', 'watch']);
 
   grunt.registerTask('default', ['copy', 'ejs', 'browser_sync', 'watch']);
   grunt.registerTask('deploy', ['copy', 'ejs', 'gh-pages']);
