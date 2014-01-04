@@ -11,19 +11,6 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     config: config,
-    browser_sync: {
-      dev: {
-        bsFiles: {
-          src: 'dist/**'
-        },
-        options: {
-          watchTask: true,
-          server: {
-            baseDir: 'dist'
-          }
-        }
-      }
-    },
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -48,10 +35,12 @@ module.exports = function (grunt) {
     },
     copy: {
       dev: {
-        'dist/touch-input-nav.js': 'touch-input-nav.js',
-        'dist/require.js': 'bower_components/requirejs/require.js',
-        'dist/jquery.js': 'bower_components/jquery/jquery.js',
-        'dist/requirejs-test.js': 'test/fixtures/requirejs-test.js'
+        files: {
+          'dist/touch-input-nav.js': 'touch-input-nav.js',
+          'dist/require.js': 'bower_components/requirejs/require.js',
+          'dist/jquery.js': 'bower_components/jquery/jquery.js',
+          'dist/requirejs-test.js': 'test/fixtures/requirejs-test.js'
+        }
       },
       qunit: {
         files: [{
@@ -81,19 +70,31 @@ module.exports = function (grunt) {
       },
       dev: {
         files: ['test/fixtures/index.ejs', 'touch-input-nav.js'],
-        tasks: ['ejs-module:nomodule', 'copy']
+        tasks: ['ejs-module:nomodule', 'copy'],
+        options: {
+          livereload: true
+        }
       },
       browserify: {
         files: ['test/fixtures/browserify-test.js'],
-        tasks: ['ejs-module:browserify', 'browserify']
+        tasks: ['ejs-module:browserify', 'browserify'],
+        options: {
+          livereload: true
+        }
       },
       requirejs: {
         files: ['test/fixtures/requirejs-test.js'],
-        tasks: ['copy', 'ejs-module:requirejs']
+        tasks: ['copy', 'ejs-module:requirejs'],
+        options: {
+          livereload: true
+        }
       },
       qunit: {
         files: ['test/tests.js', 'test/fixtures/qunit.html'],
-        tasks: ['test']
+        tasks: ['test'],
+        options: {
+          livereload: true
+        }
       }
     },
     browserify: {
@@ -115,8 +116,11 @@ module.exports = function (grunt) {
     connect: {
       server: {
         options: {
+          hostname: '0.0.0.0',
           port: 9001,
-          base: 'dist'
+          base: 'dist',
+          livereload: true,
+          open: 'http://localhost:9001'
         }
       }
     },
@@ -136,7 +140,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', ['clean', 'jshint', 'copy:qunit', 'connect', 'saucelabs-qunit']);
   grunt.registerTask('debug-test', ['browser_sync', 'watch']);
 
-  grunt.registerTask('default', ['copy', 'ejs', 'browser_sync', 'watch']);
+  grunt.registerTask('default', ['copy', 'ejs', 'connect', 'watch']);
   grunt.registerTask('deploy', ['copy', 'ejs', 'gh-pages']);
 
   require('load-grunt-tasks')(grunt);

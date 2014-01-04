@@ -1,2 +1,1 @@
-var touchInputNav = require('../../touch-input-nav');
-touchInputNav();
+require('../../touch-input-nav')();

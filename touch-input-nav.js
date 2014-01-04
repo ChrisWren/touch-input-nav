@@ -75,14 +75,17 @@
       var $otherInputs = $(inputSelectorString).not($formInputs);
 
       // Disable inputs that are outside of the current <form> scope
-      $otherInputs.prop('disabled', true);
-      $otherInputs.addClass(disabledClassName + ' ' + tabableOsAndBrowser);
+      $otherInputs
+        .prop('disabled', true)
+        .addClass(disabledClassName + ' ' + tabableOsAndBrowser);
 
       // When the currently focused input element blurs, un-disable all the others
       $this.one('blur', function () {
-        $otherInputs.prop('disabled', false);
         $(inputSelectorString).off('.input-disabled');
-        $otherInputs.removeClass(disabledClassName + ' ' + tabableOsAndBrowser);
+
+        $otherInputs
+          .prop('disabled', false)
+          .removeClass(disabledClassName + ' ' + tabableOsAndBrowser);
       });
 
       // If a disabled input field is tapped allow it to be focused
@@ -94,11 +97,12 @@
   };
 
   if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
-    require(['jquery'], function () {
+    define(['jquery'], function () {
       return touchInputNav;
     });
   } else {
     if (typeof module === 'object' && module.exports) {
+      require('jquery')(window);
       module.exports = touchInputNav;
     } else {
       window.touchInputNav = touchInputNav;

@@ -19,7 +19,6 @@
   <form action="">
     <textarea name="test-textarea" id="test-textarea" cols="30" rows="10"></textarea>
   </form>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <% if (moduleLoader === 'browserify') { %>
 
@@ -27,10 +26,10 @@
 
   <% } else if (moduleLoader === 'requirejs') { %>
 
-  <script src="require.js" data-main="requirejs-test"></script>
+  <script data-main="requirejs-test" src="require.js" ></script>
 
   <% } else { %>
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="touch-input-nav.js"></script>
   <script>
     // no module loader

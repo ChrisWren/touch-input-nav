@@ -1,4 +1,4 @@
-require(['touch-input-nav'], function (touchInputNav) {
+define(['touch-input-nav'], function (touchInputNav) {
   'use strict';
   return touchInputNav();
 });
