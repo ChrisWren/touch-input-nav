@@ -7,6 +7,7 @@
 </head>
 <body>
   <i>This page should be viewed on an iOS device. Notice how the tabbed input navigation is scoped within the form.</i>
+
   <h2>Form 1:</h2>
   <form action="">
     <input type="text">
@@ -15,6 +16,7 @@
       <option value="option2">option2</option>
     </select>
   </form>
+
   <h2>Form 2:</h2>
   <form action="">
     <textarea name="test-textarea" id="test-textarea" cols="30" rows="10"></textarea>
@@ -29,12 +31,14 @@
   <script data-main="requirejs-test" src="require.js" ></script>
 
   <% } else { %>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="touch-input-nav.js"></script>
   <script>
     // no module loader
     window.touchInputNav();
   </script>
+
   <% } %>
 </body>
 </html>
