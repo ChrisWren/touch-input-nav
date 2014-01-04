@@ -2,6 +2,8 @@
 
 > Scopes touch-web tabbed input navigation to input elements inside the same form
 
+[![NPM version](https://badge.fury.io/js/touch-input-nav.png)](http://badge.fury.io/js/touch-input-nav) [![Travis Status](https://travis-ci.org/ChrisWren/touch-input-nav.png)](https://travis-ci.org/ChrisWren/touch-input-nav)
+
 ![touch-input-nav](http://i.imgur.com/adaP4uB.gif)
 
 *Video made using [SimFinger](https://github.com/atebits/SimFinger)*
