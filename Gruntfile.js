@@ -60,12 +60,14 @@ module.exports = function (grunt) {
           dest: 'dist',
           expand: true
         }, {
+          'dist/jquery.js': 'bower_components/jquery/jquery.js',
           'dist/touch-input-nav.js': 'touch-input-nav.js',
           'dist/qunit.html': 'test/fixtures/qunit.html',
           'dist/tests.js': 'test/tests.js'
         }]
       }
     },
+    clean: ['dist'],
     uglify: {
       dist: {
         files: {
@@ -131,7 +133,7 @@ module.exports = function (grunt) {
     grunt.task.run('ejs');
   });
 
-  grunt.registerTask('test', ['jshint', 'copy:qunit', 'connect', 'saucelabs-qunit']);
+  grunt.registerTask('test', ['clean', 'jshint', 'copy:qunit', 'connect', 'saucelabs-qunit']);
   grunt.registerTask('debug-test', ['browser_sync', 'watch']);
 
   grunt.registerTask('default', ['copy', 'ejs', 'browser_sync', 'watch']);
