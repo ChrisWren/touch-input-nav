@@ -52,8 +52,7 @@ Type: `string`
 
 A class to allow for custom styling of the disabled state. This can be used to override how the disabled state is presented for form input elements outside of the current form scope.
 
-## Current Browsers supported
-
+## Targeted mobile browsers which have tabbed input navigation
 - iOS Safari/Chrome
 
 *Note: all other browsers will have no input field disabling applied.*
