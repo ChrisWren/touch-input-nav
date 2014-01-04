@@ -1,6 +1,6 @@
 {
   "name": "touch-input-nav",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Scopes touch-web tabbed input navigation to input elements inside the same form",
   "main": "touch-input-nav.js",
   "directories": {
