@@ -1,9 +1,8 @@
 module.exports = function (grunt) {
   'use strict';
 
-  var sauceLabsCredentials;
   if (grunt.file.exists('./.saucelabs.js')) {
-    sauceLabsCredentials = require('./.saucelabs');
+    require('./.saucelabs');
   }
 
   var config = {
@@ -40,8 +39,6 @@ module.exports = function (grunt) {
     'saucelabs-qunit': {
       all: {
         options: {
-          username: sauceLabsCredentials.username,
-          key: sauceLabsCredentials.key,
           urls: ['http://localhost:9001/qunit.html'],
           browsers: [{
             browserName: 'chrome',
