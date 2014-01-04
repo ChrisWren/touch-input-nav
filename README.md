@@ -57,3 +57,8 @@ A class to allow for custom styling of the disabled state. This can be used to o
 - iOS Safari/Chrome
 
 *Note: all other browsers will have no input field disabling applied.*
+
+# Changelog
+
+ - **0.0.1** - Made jquery a proper dependency for browserify, used proper require.js module definition syntax.
+ - **0.0.0** - Initial release.
