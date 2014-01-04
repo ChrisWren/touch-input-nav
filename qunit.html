@@ -1,15 +1,15 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <title>Test page for touch-input-nav</title>
+  <meta charset="utf-8">
+  <title>QUnit Example</title>
+  <link rel="stylesheet" href="qunit.css">
 </head>
 <body>
-  <i>This page should be viewed on an iOS device. Notice how the tabbed input navigation is scoped within the form.</i>
+  <div id="qunit"></div>
   <h2>Form 1:</h2>
   <form action="">
-    <input type="text">
+    <input type="text" id="test-input">
     <select name="test" id="test-select">
       <option value="option1">option1</option>
       <option value="option2">option2</option>
@@ -19,11 +19,9 @@
   <form action="">
     <textarea name="test-textarea" id="test-textarea" cols="30" rows="10"></textarea>
   </form>
-
-  
-
-  <script src="build.js"></script>
-
-  
+  <script src="jquery.js"></script>
+  <script src="qunit.js"></script>
+  <script src="touch-input-nav.js"></script>
+  <script src="tests.js"></script>
 </body>
 </html>
