@@ -28,7 +28,7 @@ npm install --save-dev touch-input-nav
 
 *Note that this module is dependent on jQuery.*
 
-This module will add a global listener for the `focus` event on all input, select, and textarea elements and then when the focus event occurs, it will disable all other input elements that are not inside the focused-element's parent `form` element. It applies a class on the disabled elements so that they appear enabled in case they are visible within the viewport. A user can still click on these `disabled` elements, just not tab to them as they are not a part of a form-flow.
+This module will add a global listener for the `focus` event on all input, select, and textarea elements and then when the focus event occurs, it will disable all other input elements that are not inside the focused element's parent `form` element. It applies a class on the disabled elements so that they appear enabled in case they are visible within the viewport. A user can still tap on these `disabled` elements, just not tab to them as they are not a part of the same form.
 
 ```js
 // no module loader
