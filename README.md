@@ -4,7 +4,7 @@
 
 [![NPM version](https://badge.fury.io/js/touch-input-nav.png)](http://badge.fury.io/js/touch-input-nav) [![Travis Status](https://travis-ci.org/ChrisWren/touch-input-nav.png)](https://travis-ci.org/ChrisWren/touch-input-nav)
 
-![touch-input-nav](http://i.imgur.com/adaP4uB.gif)
+![toutch-input-nav](http://i.imgur.com/B55z1Zy.gif)
 
 *Video made using [SimFinger](https://github.com/atebits/SimFinger)*
 
