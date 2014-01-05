@@ -8,6 +8,10 @@
 
 *Video made using [SimFinger](https://github.com/atebits/SimFinger)*
 
+## Why use this plugin?
+
+By default, mobile browsers allow users to "tab" or navigate between input fields regardless of which form they belong to. The problem is if you have multiple input fields on your mobile website/webapp which are not related, the user will be able to navigate between these unrelated fields. The goal of this tool is to only provide input navigation to related input fields by disabling navigation between unrelated fields.
+
 ## Installation
 
 ### Zip
