@@ -2,7 +2,9 @@
 
 > Scopes touch-web tabbed input navigation to input elements inside the same form
 
-[![NPM version](https://badge.fury.io/js/touch-input-nav.png)](http://badge.fury.io/js/touch-input-nav) [![Travis Status](https://travis-ci.org/ChrisWren/touch-input-nav.png)](https://travis-ci.org/ChrisWren/touch-input-nav)
+[![NPM version](https://badge.fury.io/js/touch-input-nav.png)](http://badge.fury.io/js/touch-input-nav) [![Travis Status](https://travis-ci.org/ChrisWren/touch-input-nav.png)](https://travis-ci.org/ChrisWren/touch-input-nav) <a href="https://saucelabs.com/u/cthewrenopen">
+  <img src="https://saucelabs.com/buildstatus/cthewrenopen" alt="Selenium Test Status" />
+</a>
 
 ![toutch-input-nav](http://i.imgur.com/B55z1Zy.gif)
 
