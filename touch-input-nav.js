@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  */
 /* jshint -W015 */
-;(function () {
+;(function ($) {
   'use strict';
 
   // Negates the user agent :disabled input field styling on a per os/browser basis
@@ -108,4 +108,4 @@
       window.touchInputNav = touchInputNav;
     }
   }
-})();
+})(window.jQuery);
